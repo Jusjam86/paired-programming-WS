@@ -7,18 +7,17 @@ public abstract class Contract {
     private String customerName;
     private String customerEmail;
     private boolean vehicleSold;
-    private double totalPrice;
-    private double monthlyPayment;
+//    private double totalPrice;
+//    private double monthlyPayment;
 
     // constructor
-    public Contract(String dateOfContract, String customerName, String customerEmail, boolean vehicleSold,
-                    double totalPrice, double monthlyPayment) {
+    public Contract(String dateOfContract, String customerName, String customerEmail, boolean vehicleSold) {
         this.dateOfContract = dateOfContract;
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.vehicleSold = vehicleSold;
-        this.totalPrice = totalPrice;
-        this.monthlyPayment = monthlyPayment;
+//        this.totalPrice = totalPrice;
+//        this.monthlyPayment = monthlyPayment;
     }
 
     // getters & setters
@@ -34,11 +33,11 @@ public abstract class Contract {
     public boolean isVehicleSold() {return vehicleSold;}
     public void setVehicleSold(boolean vehicleSold) {this.vehicleSold = vehicleSold;}
 
-    public abstract double getTotalPrice() {return totalPrice;}
-    public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
+    public abstract double getTotalPrice();
+//    public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
 
-    public double getMonthlyPayment() {return monthlyPayment;}
-    public void setMonthlyPayment(double monthlyPayment) {this.monthlyPayment = monthlyPayment;}
+    public abstract double getMonthlyPayment();
+//    public void setMonthlyPayment(double monthlyPayment) {this.monthlyPayment = monthlyPayment;}
 
     // methods
 //    public abstract double getTotalPrice(){}
