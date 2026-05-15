@@ -78,7 +78,7 @@ public class DealershipApplication
         }
         else
         {
-            contract = new LeaseContract(date, name, email, true, vehicle);
+            contract = new LeaseContract(date, name, email, vehicle);
         }
 
         ContractFileManager.writeContract(contract, vehicle);

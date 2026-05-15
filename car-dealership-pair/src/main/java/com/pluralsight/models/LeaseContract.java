@@ -8,10 +8,9 @@ public class LeaseContract extends Contract {
     private double leaseFee = 0.07;
 
     // constructor
-    public LeaseContract(String dateOfContract, String customerName, String customerEmail, boolean vehicleSold,
-                         Vehicle vehicle)
+    public LeaseContract(String dateOfContract, String customerName, String customerEmail, Vehicle vehicle)
     {
-        super(dateOfContract, customerName, customerEmail, vehicleSold);
+        super(dateOfContract, customerName, customerEmail);
         this.vehicle = vehicle;
     }
 
