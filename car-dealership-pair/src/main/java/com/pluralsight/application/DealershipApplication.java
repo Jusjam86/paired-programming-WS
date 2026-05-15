@@ -1,9 +1,10 @@
 package com.pluralsight.application;
 
-import com.pluralsight.models.Dealership;
-import com.pluralsight.models.Vehicle;
+import com.pluralsight.io.ContractFileManager;
+import com.pluralsight.models.*;
 import com.pluralsight.ui.UserInterface;
 
+import java.rmi.dgc.Lease;
 import java.util.ArrayList;
 
 public class DealershipApplication
@@ -44,6 +45,9 @@ public class DealershipApplication
                 case 7:
                     addVehicle();
                     break;
+                case 8:
+                    saveContract();
+                    break;
                 case 0:
                     UserInterface.endApplication();
                     System.exit(0);
@@ -51,6 +55,31 @@ public class DealershipApplication
         }
     }
 
+    private void saveContract()
+    {
+        // get user info
+        int vin = UserInterface.getUserInputInt("Enter VIN of vehicle: ");
+        String type = UserInterface.getUserInput("Sale or Lease? (SALE/LEASE): ");
+        String date = UserInterface.getUserInput("Date of contract (YYYYMMDD): ");
+        String name = UserInterface.getUserInput("Customer name: ");
+        String email = UserInterface.getUserInput("Customer email: ");
+
+        // find vehicle to sell/lease
+        Vehicle vehicle = dealership.getByVin(vin);
+
+        // create the contract with all the info
+        Contract contract;
+        if (type.equals("SALE"))
+        {
+            contract = new SalesContract(date, name, email, true, vehicle,false);
+        }
+        else
+        {
+            contract = new LeaseContract(date, name, email, true, vehicle);
+        }
+
+        ContractFileManager.writeContract(contract, vehicle);
+    }
     private void displayAllVehicles()
     {
         UserInterface.displayMessage("\nShow All Vehicles");

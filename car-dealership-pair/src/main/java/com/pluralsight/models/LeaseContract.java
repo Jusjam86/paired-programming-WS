@@ -4,22 +4,15 @@ public class LeaseContract extends Contract {
 
     // variables
     private Vehicle vehicle; // vehicle object;
-    private double totalPrice;
-    private double monthlyPayment;
     private double expectedEndingValue = 0.50;
     private double leaseFee = 0.07;
 
     // constructor
     public LeaseContract(String dateOfContract, String customerName, String customerEmail, boolean vehicleSold,
-                         Vehicle vehicle, double totalPrice, double monthlyPayment, double expectedEndingValue,
-                         double leaseFee)
+                         Vehicle vehicle)
     {
         super(dateOfContract, customerName, customerEmail, vehicleSold);
         this.vehicle = vehicle;
-        this.totalPrice = totalPrice;
-        this.monthlyPayment = monthlyPayment;
-        this.expectedEndingValue = expectedEndingValue;
-        this.leaseFee = leaseFee;
     }
 
     // getters & setters

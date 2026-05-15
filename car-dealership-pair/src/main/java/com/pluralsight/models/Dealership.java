@@ -98,6 +98,12 @@ public class Dealership
         return inventory;
     }
 
+
+    public Vehicle getByVin(int vin)
+    {
+        return inventory.stream().filter(v -> v.getVin() == vin).findFirst().orElse(null);
+    }
+
     public void removeVehicle(Vehicle vehicle)
     {
         inventory = inventory.stream()
