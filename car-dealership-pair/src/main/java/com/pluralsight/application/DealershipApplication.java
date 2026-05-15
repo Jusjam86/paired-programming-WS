@@ -63,6 +63,8 @@ public class DealershipApplication
         String date = UserInterface.getUserInput("Date of contract (YYYYMMDD): ");
         String name = UserInterface.getUserInput("Customer name: ");
         String email = UserInterface.getUserInput("Customer email: ");
+        String financeOption = UserInterface.getUserInput("Would you like to finance (y/n): ");
+
 
         // find vehicle to sell/lease
         Vehicle vehicle = dealership.getByVin(vin);
@@ -71,7 +73,8 @@ public class DealershipApplication
         Contract contract;
         if (type.equals("SALE"))
         {
-            contract = new SalesContract(date, name, email, true, vehicle,false);
+            boolean isFinanced = financeOption.equalsIgnoreCase("y");
+            contract = new SalesContract(date, name, email, vehicle, isFinanced);
         }
         else
         {

@@ -10,10 +10,9 @@ public class SalesContract extends Contract {
     private boolean finance; // y/n
 
     // constructor
-    public SalesContract(String dateOfContract, String customerName, String customerEmail,
-                         boolean vehicleSold, Vehicle vehicle, boolean finance)
+    public SalesContract(String dateOfContract, String customerName, String customerEmail, Vehicle vehicle, boolean finance)
     {
-        super(dateOfContract, customerName, customerEmail, vehicleSold);
+        super(dateOfContract, customerName, customerEmail);
         this.vehicle = vehicle;
         this.finance = finance;
     }
